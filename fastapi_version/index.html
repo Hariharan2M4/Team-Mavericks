@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baroda U.P. Bank - Internet Banking Form</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="sidebar">
+        <h2>OCR Auto-Populate</h2>
+        <p>Paste your OCR extracted JSON here to populate the form.</p>
+        <textarea id="jsonInput" placeholder='{"customerId": "1234567890", ...}'></textarea>
+        <button id="populateBtn">Populate Form</button>
+        <button id="downloadBtn" class="secondary-btn" style="display: none;">Download CSV</button>
+        <div id="statusMessage"></div>
+      </div>
+      
+      <div class="main-content">
+        <div class="form-container">
+          <div class="form-header">
+            <div class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/en/thumb/c/c5/Baroda_UP_Bank_Logo.svg/120px-Baroda_UP_Bank_Logo.svg.png" alt="Baroda UP Bank Logo" onerror="this.style.display='none'">
+            </div>
+            <div class="bank-title">
+              <h1>बड़ौदा यू.पी. बैंक</h1>
+              <h2>Baroda U.P. Bank</h2>
+            </div>
+          </div>
+          
+          <h3 class="doc-title">APPLICATION FORM FOR INTERNET BANKING (FOR INDIVIDUALS)</h3>
+          <p class="doc-subtitle">I/We request you to register my/our application for internet banking facility & link my/our accounts with your branch/other branch</p>
+          
+          <form id="bankForm">
+            <div class="form-group flex-row">
+              <label class="radio-label">Transaction Rights <input type="radio" name="rights" value="transaction"></label>
+              <label class="radio-label">View Only <input type="radio" name="rights" value="viewOnly"></label>
+            </div>
+            
+            <div class="form-group boxed-input">
+              <label>CUSTOMER ID:</label>
+              <input type="text" name="customerId" maxlength="10" placeholder="          ">
+            </div>
+
+            <div class="form-group boxed-input">
+              <label>ACCOUNT NO.:</label>
+              <input type="text" name="accountNo" maxlength="14" placeholder="              ">
+            </div>
+
+            <div class="form-group boxed-input">
+              <label>NAME OF THE ACCOUNT HOLDER:</label>
+              <input type="text" name="accountHolderName" maxlength="30" placeholder="                              ">
+            </div>
+            
+            <div class="form-group flex-row align-center">
+              <label>DATE OF BIRTH:</label>
+              <input type="date" name="dob">
+            </div>
+
+            <div class="form-group line-input">
+              <label>RESIDENTIAL STATUS:</label>
+              <input type="text" name="residentialStatus">
+            </div>
+
+            <div class="address-section">
+              <h4>COMMUNICATION ADDRESS:</h4>
+              <div class="form-group full-width line-input no-label">
+                  <input type="text" name="commAddressLine" placeholder="Address">
+              </div>
+              <div class="form-group-row">
+                <div class="form-group line-input"><label>City:</label><input type="text" name="commCity"></div>
+                <div class="form-group line-input"><label>State:</label><input type="text" name="commState"></div>
+                <div class="form-group line-input"><label>Pin Code:</label><input type="text" name="commPinCode"></div>
+              </div>
+            </div>
+
+            <div class="form-group flex-row" style="margin-top: 10px;">
+              <label class="checkbox-label"><input type="checkbox" id="sameAsAbove"> Same as above</label>
+            </div>
+
+            <div class="address-section">
+              <h4>PERMANENT ADDRESS:</h4>
+              <div class="form-group full-width line-input no-label">
+                  <input type="text" name="permAddressLine" placeholder="Address">
+              </div>
+              <div class="form-group-row">
+                <div class="form-group line-input"><label>City:</label><input type="text" name="permCity"></div>
+                <div class="form-group line-input"><label>State:</label><input type="text" name="permState"></div>
+                <div class="form-group line-input"><label>Pin Code:</label><input type="text" name="permPinCode"></div>
+              </div>
+            </div>
+
+            <div class="form-group-row">
+              <div class="form-group line-input flex-2"><label>Email address:</label><input type="email" name="email"></div>
+              <div class="form-group line-input flex-1"><label>Mobile:</label><input type="text" name="mobile"></div>
+            </div>
+
+            <div class="form-group line-input">
+              <label>OCCUPATION:</label>
+              <input type="text" name="occupation">
+            </div>
+
+            <div class="form-group line-input">
+              <label>Mother's Maiden name:</label>
+              <input type="text" name="motherMaidenName">
+            </div>
+
+            <div class="linked-accounts">
+              <p>Details of any existing accounts to be linked for internet banking <span>(If space insufficient attach addition sheet)</span></p>
+              <table id="accountsTable">
+                <thead>
+                  <tr>
+                    <th>Branch Name</th>
+                    <th>Name of Jt. A/C Holder</th>
+                    <th>Account No.</th>
+                    <th>Mode of Operation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- 5 empty rows -->
+                  <tr><td><input type="text" name="linked_branch_0"></td><td><input type="text" name="linked_name_0"></td><td><input type="text" name="linked_acc_0"></td><td><input type="text" name="linked_mode_0"></td></tr>
+                  <tr><td><input type="text" name="linked_branch_1"></td><td><input type="text" name="linked_name_1"></td><td><input type="text" name="linked_acc_1"></td><td><input type="text" name="linked_mode_1"></td></tr>
+                  <tr><td><input type="text" name="linked_branch_2"></td><td><input type="text" name="linked_name_2"></td><td><input type="text" name="linked_acc_2"></td><td><input type="text" name="linked_mode_2"></td></tr>
+                  <tr><td><input type="text" name="linked_branch_3"></td><td><input type="text" name="linked_name_3"></td><td><input type="text" name="linked_acc_3"></td><td><input type="text" name="linked_mode_3"></td></tr>
+                  <tr><td><input type="text" name="linked_branch_4"></td><td><input type="text" name="linked_name_4"></td><td><input type="text" name="linked_acc_4"></td><td><input type="text" name="linked_mode_4"></td></tr>
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="signature-section">
+              <div class="signature-box">Signature of the Customer/s</div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
