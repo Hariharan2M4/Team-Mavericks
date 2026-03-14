@@ -1,0 +1,10 @@
+pdf2image
+paddleocr
+paddlepaddle
+fastapi
+uvicorn
+python-multipart
+gradio
+opencv-python
+numpy
+Pillow
