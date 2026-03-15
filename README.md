@@ -194,6 +194,8 @@ CHECKBOX_LABELS = ["Transaction Rights", "View Only"]
 
 ---
 
+SAMPLE OUTPUT: output1.jpeg
+
 # 🔐 Security Note
 
 **Never commit your `.env` file to GitHub.**
