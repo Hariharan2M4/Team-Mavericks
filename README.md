@@ -194,7 +194,9 @@ CHECKBOX_LABELS = ["Transaction Rights", "View Only"]
 
 ---
 
-SAMPLE OUTPUT: output1.jpeg
+SAMPLE OUTPUT: 
+![Project Screenshot](./output1.jpeg)
+
 
 # 🔐 Security Note
 
